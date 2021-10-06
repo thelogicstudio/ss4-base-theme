@@ -1,0 +1,24 @@
+{
+    "name": "thelogicstudio/ss4-base-theme",
+    "description": "Base SilverStripe theme for a basic install",
+    "type": "silverstripe-theme",
+    "keywords": ["silverstripe", "theme"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Ian Simpson"
+        }
+    ],
+    "require": {
+        "composer/installers": "*",
+        "silverstripe/framework": ">=4.0"
+    },
+	"extra": {
+        "expose": [
+            "dist/css",
+            "dist/javascript",
+            "images",
+            "webfonts"
+        ]
+	}
+}

@@ -1,0 +1,15 @@
+@use "sass:math";
+
+@import 'global/_variables';
+
+@import 'global/_typography';
+@import 'global/_global';
+@import 'global/_misc';
+
+@import 'layout/_homepage';
+@import 'layout/_elements';
+
+html,body {
+    background: $main-bg;
+    padding: math.div($spacer, 2);
+}

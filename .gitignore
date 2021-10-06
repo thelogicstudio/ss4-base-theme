@@ -1,0 +1,7 @@
+### Node modules and sass ###
+node_modules
+_site
+
+# Ignore compiled files
+dist/*.map
+package-lock.json
