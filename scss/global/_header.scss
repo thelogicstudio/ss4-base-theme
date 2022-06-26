@@ -1,1 +1,201 @@
 @import "variables";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  .nav-primary,
+  .nav-secondary {
+    list-style: none;
+    padding: 0;
+  }
+
+  .nav-primary {
+    display: flex;
+    align-items: flex-start;
+
+    .nav-item {
+      display: flex;
+      position: relative;
+      margin: 0 30px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      .nav-secondary {
+        list-style: none;
+        position: absolute;
+        width: max-content;
+        top: 1.6rem;
+        left: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.2s ease, opacity 0.2s ease;
+        z-index: 1;
+
+        .nav-item-secondary {
+
+        }
+      }
+
+      &:focus,
+      &:hover {
+        .nav-secondary {
+          visibility: visible;
+          opacity: 1;
+          transition: visibility 0.2s ease, opacity 0.2s ease;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1100px) {
+  body.menu-open {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  header {
+    #menu-toggle {
+      display: block;
+    }
+
+    .menu-active.nav-container {
+      left: 0;
+    }
+
+    .nav-container {
+      position: fixed;
+      left: 100%;
+      width: 100%;
+      transition: .3s ease all;
+    }
+
+    .nav-container {
+      z-index: 1;
+      top: 75px;
+      height: 100vh;
+      background: #fff;
+
+      .nav-primary {
+        flex-direction: column;
+        width: max-content;
+        margin: 0 auto;
+
+        .nav-item {
+          display: block;
+          margin: 0;
+
+          .nav-secondary {
+            visibility: visible;
+            position: relative;
+            opacity: 1;
+            top: 0;
+            margin-left: 1.6rem;
+
+            .nav-item-secondary {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hamburger {
+  padding: 28px;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: #000;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+
+  .hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+  }
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    width: 40px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    content: "";
+    display: block;
+  }
+
+  .hamburger-inner::before {
+    top: -10px;
+  }
+
+  .hamburger-inner::after {
+    bottom: -10px;
+  }
+}
+
+//spin animation
+.hamburger--spin .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin .hamburger-inner::before {
+  transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin .hamburger-inner::after {
+  transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+  transform: rotate(225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+
+.hamburger--spin.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
