@@ -1,0 +1,60 @@
+@import "variables";
+
+body, input, textarea, select, button {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+p, span, a {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+button, .button, .action {
+
+  &:hover,
+  &:focus {
+
+  }
+}

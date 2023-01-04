@@ -1,8 +1,15 @@
+@import "variables";
 /***************************************
     CORE STYLES
 ****************************************/
 :root {
     font-size: 16px;
+    font-family: $font-family-base;
+}
+
+body {
+    background: white;
+    margin: 0;
 }
 
 // Silverstripe CMS Default Style Classes
