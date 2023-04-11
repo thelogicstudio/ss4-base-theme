@@ -10,7 +10,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify-es').default
 
 const { babel } = require('@rollup/plugin-babel');
-const { nodeResolve } = require('@rollup/plugin-node-resolve');
 
 // Where your SCSS files are located
 const cssSrcDir = './scss';
@@ -56,7 +55,6 @@ gulp.task('js', function (cb) {
                 babel({
                     babelHelpers: 'bundled',
                 }),
-                nodeResolve(),
             ],
             treeshake: false,
             onwarn: function(warning) {
