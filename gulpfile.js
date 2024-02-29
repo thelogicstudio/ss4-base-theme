@@ -18,13 +18,16 @@ const cssDstDir = './dist/css';
 const jsSrcDir = './javascript';
 const jsDstDir = './dist/javascript';
 
+const vendorDir = '../../vendor';
+
 gulp.task('sass', function (cb) {
 	gulp
 		.src(`${cssSrcDir}/*.scss`)
 		.pipe(sourcemaps.init())
 		.pipe(sass({
             includePaths: [
-                'node_modules/'
+                'node_modules/',
+                vendorDir
             ],
 			errLogToConsole: false,
 		}))
@@ -44,7 +47,7 @@ gulp.task('sass', function (cb) {
 
 gulp.task('js', function (cb) {
 	gulp
-		.src(`${jsSrcDir}/*.js`)
+		.src([`${jsSrcDir}/*.js`, `${vendorDir}/thelogicstudio/**/*.js`])
         .pipe(plumber(function(error) {
             console.log(error.toString());
             this.emit('end');
